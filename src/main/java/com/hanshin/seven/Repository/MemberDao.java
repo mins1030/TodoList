@@ -14,4 +14,9 @@ public class MemberDao {
 	public Member selectMemberInfo(int empNum) {
 		return sqlSession.selectOne("MemberMapper.selectMemberInfo", empNum);
 	}
+	
+	//회원가입
+	public int insertMember(Member member) {
+		return sqlSession.insert("insertMember",member);  //insert,update,delete한 개수 반환
+	}
 }

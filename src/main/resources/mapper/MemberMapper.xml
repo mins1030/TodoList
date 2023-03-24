@@ -10,6 +10,9 @@
         from member
         where emp_num = #{emp_num}
     </select>
-	
+    
+	<insert id="insertMember" parameterType="com.hanshin.seven.Domain.Member">
+		INSERT INTO member VALUES(#{name}, #{emp_num}, #{dept}, #{pos}, #{email}, #{pwd})
+	</insert>
 </mapper>
 	
