@@ -11,7 +11,7 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	public Member selectMemberInfo(String email) {
-		return sqlSession.selectOne("MemberMapper.selectMemberInfo", email);
+	public Member selectMemberInfo(int empNum) {
+		return sqlSession.selectOne("MemberMapper.selectMemberInfo", empNum);
 	}
 }

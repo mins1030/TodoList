@@ -2,10 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
 <mapper namespace="MemberMapper">
+
     <select id="selectMemberInfo" resultType="com.hanshin.seven.Domain.Member">
-        select name, email, pwd, dept, pos, emp_num
+        select name, emp_num, dept, pos, email, pwd
         from member
-        where email = #{email}
+        where emp_num = #{emp_num}
     </select>
+	
 </mapper>
+	
