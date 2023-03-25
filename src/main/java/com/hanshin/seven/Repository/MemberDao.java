@@ -1,5 +1,7 @@
 package com.hanshin.seven.Repository;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,8 +17,23 @@ public class MemberDao {
 		return sqlSession.selectOne("MemberMapper.selectMemberInfo", empNum);
 	}
 	
-	//회원가입
+	
 	public int insertMember(Member member) {
-		return sqlSession.insert("insertMember",member);  //insert,update,delete한 개수 반환
+		return sqlSession.insert("MemberMapper.insertMember",member); 
+		//insert한 개수 반환
+	}
+	
+	public List<Member> findAllMembers(){
+		return sqlSession.selectList("MemberMapper.findAllMembers");
+	}
+	
+	public int updateMember(Member member) {
+		return sqlSession.update("MemberMapper.updateMember",member);
+		//update한 개수 반환
+	}
+	
+	public int deleteMember(Member member) {
+		return sqlSession.delete("MemberMapper.deleteMember",member);
+		//delete한 개수 반환
 	}
 }

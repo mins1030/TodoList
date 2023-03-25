@@ -6,13 +6,41 @@
 <mapper namespace="MemberMapper">
 
     <select id="selectMemberInfo" resultType="com.hanshin.seven.Domain.Member">
-        select name, emp_num, dept, pos, email, pwd
+        select 
+        	name, 
+        	emp_num, 
+        	dept, 
+        	pos, 
+        	email, 
+        	pwd
         from member
-        where emp_num = #{emp_num}
+        where emp_num = #{empNum}
     </select>
     
 	<insert id="insertMember" parameterType="com.hanshin.seven.Domain.Member">
-		INSERT INTO member VALUES(#{name}, #{emp_num}, #{dept}, #{pos}, #{email}, #{pwd})
+		INSERT INTO member 
+			VALUES(#{name}, #{empNum}, #{dept}, #{pos}, #{email}, #{pwd})
 	</insert>
+	
+	<select id="findAllMembers" parameterType="com.hanshin.seven.Domain.Member">
+		select name, emp_num, dept, pos, email, pwd
+        from member
+	</select>
+	
+	<update id="updateMember" parameterType="com.hanshin.seven.Domain.Member">
+		UPDATE member SET
+			name= #{name},
+			dept= #{dept},
+			pos= #{pos},
+			email= #{email},
+			pwd= #{pwd}
+		WHERE emp_num = #{empNum}	
+	</update>
+	
+	<delete id="deleteMember" parameterType="com.hanshin.seven.Domain.Member">
+		DELETE FROM member
+		WHERE emp_num = #{empNum}	
+	</delete>
+	
 </mapper>
 	
