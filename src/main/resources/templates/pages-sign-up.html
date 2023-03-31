@@ -29,22 +29,22 @@
 
 						<div class="text-center mt-4">
 							<h1 class="h2">Sign Up</h1>
-							<p class="lead">
+						<!--  	<p class="lead">
 								Start creating the best possible user experience for you customers.
-							</p>
+							</p> -->
 						</div>
 
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form>
+									<form action="/signUp" method="post">
 										<div class="mb-3">
 											<label class="form-label">이름</label>
 											<input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">사원번호</label>
-											<input class="form-control form-control-lg" type="text" name="number" placeholder="Enter your employee number" />
+											<input class="form-control form-control-lg" type="text" name="empNum" placeholder="Enter your employee number" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">부서</label>
@@ -60,10 +60,11 @@
 										</div>
 										<div class="mb-3">
 											<label class="form-label">비밀번호</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
+											<input class="form-control form-control-lg" type="password" name="pwd" placeholder="Enter your password" />
 										</div>
 										<div class="text-center mt-3">
-											<a href="/index" class="btn btn-lg btn-primary">회원가입</a>
+											<button type="submit" class="btn btn-lg btn-primary">회원가입</button>
+											<!-- <a href="/index" class="btn btn-lg btn-primary">회원가입</a> -->
 											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
 										</div>
 									</form>

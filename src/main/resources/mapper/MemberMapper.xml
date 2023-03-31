@@ -35,12 +35,10 @@
 			email= #{email},
 			pwd= #{pwd}
 		WHERE emp_num = #{empNum}	
-	</update>
-	
+	</update>	
 	<delete id="deleteMember" parameterType="com.hanshin.seven.Domain.Member">
 		DELETE FROM member
 		WHERE emp_num = #{empNum}	
-	</delete>
-	
+	</delete>	
 </mapper>
 	
