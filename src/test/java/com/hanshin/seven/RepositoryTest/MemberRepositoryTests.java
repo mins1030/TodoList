@@ -1,5 +1,4 @@
 package com.hanshin.seven.RepositoryTest;
-
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
@@ -12,12 +11,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.hanshin.seven.Domain.Member;
 import com.hanshin.seven.Repository.MemberDao;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class MemberRepositoryTests {
-
 	  @Autowired
 	  private MemberDao memberDao;
 	
