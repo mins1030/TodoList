@@ -13,6 +13,10 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	public List<Member> selectMember(Member member) {
+		return sqlSession.selectList("MemberMapper.selectMember", member);
+	}
+	
 	public Member selectMemberInfo(int empNum) {
 		return sqlSession.selectOne("MemberMapper.selectMemberInfo", empNum);
 	}

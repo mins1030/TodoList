@@ -5,6 +5,24 @@
         
 <mapper namespace="MemberMapper">
 
+    <select id="selectMember" resultType="com.hanshin.seven.Domain.Member">
+        select 
+        	name, 
+        	emp_num, 
+        	dept, 
+        	pos, 
+        	email, 
+        	pwd
+        from member
+        where 1=1
+        <if test="email != null  ">
+        	and email = #{email}
+        </if>
+        <if test="empNum != null and empNum != 0">
+        	and emp_num = #{empNum}
+        </if>
+    </select>
+
     <select id="selectMemberInfo" resultType="com.hanshin.seven.Domain.Member">
         select 
         	name, 

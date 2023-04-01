@@ -1,6 +1,6 @@
 package com.hanshin.seven.Service;
 
-import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +31,11 @@ public class MemberService {
 		
 		return memberDao.insertMember(member);
 	}
+	
+	public List<Member> selectMember (Member member) {
+		return memberDao.selectMember(member);
+	}
+	
 	
 	
 }
