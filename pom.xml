@@ -72,6 +72,14 @@
 	    </dependency>
 	    <!-- jsp 설정 끝 -->
 	    
+	    <!--JSON 설정 시작-->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-json -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-json</artifactId>
+		    <version>3.0.4</version>
+		</dependency>
+		<!--JSON 설정 끝-->
 		<dependency>
 		  <groupId>org.springframework.boot</groupId>
 		  <artifactId>spring-boot-devtools</artifactId>

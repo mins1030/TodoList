@@ -21,6 +21,9 @@
         <if test="empNum != null and empNum != 0">
         	and emp_num = #{empNum}
         </if>
+        <if test="pwd != null and pwd != 0">
+        	and pwd = #{pwd}
+        </if>
     </select>
 
     <select id="selectMemberInfo" resultType="com.hanshin.seven.Domain.Member">
