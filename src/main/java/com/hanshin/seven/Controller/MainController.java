@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
@@ -53,8 +54,13 @@ public class MainController {
 		return "pages-profile";
 	}
 	@GetMapping("/pages-sign-in")
-	public String pagesSignIn() {
+	public String pagesSignIn(HttpSession session) {
 		logger.debug("pages-sign-in controller ...");
+		
+		if(session.getAttribute("otm_email")!=null) {
+			return "index";
+		}
+		
 		return "pages-sign-in";
 	}
 	@GetMapping("/pages-sign-up")

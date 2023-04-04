@@ -21,7 +21,7 @@
         <if test="empNum != null and empNum != 0">
         	and emp_num = #{empNum}
         </if>
-        <if test="pwd != null and pwd != 0">
+        <if test="pwd != null">
         	and pwd = #{pwd}
         </if>
     </select>

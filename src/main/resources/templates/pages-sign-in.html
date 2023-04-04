@@ -43,11 +43,11 @@
 									<!-- <form> -->
 										<div class="mb-3">
 											<label class="form-label">이메일</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<input class="form-control form-control-lg" id="inputEmail" type="email" name="email" placeholder="Enter your email" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">비밀번호</label>
-											<input class="form-control form-control-lg" type="password" name="pwd" placeholder="Enter your password" />
+											<input class="form-control form-control-lg" id="inputPassword" type="password" name="pwd" placeholder="Enter your password" />
 											<small>
 <!--             <a href="index.html">Forgot password?</a>
           </small> 
@@ -78,17 +78,27 @@
 	<script src="js/app.js"></script>
 	<script type="text/javascript">
 		async function loginButtonClickEvent(event){
-			console.log("abc");
 			event.preventDefault();
 			await fetch("/login", {
+			 	headers: {
+			      "Content-Type": "application/json",
+			      // 'Content-Type': 'application/x-www-form-urlencoded',
+			    },
 				method:"POST",
-				body : {
-					"email":'testEmail',
-					"pwd":"testPwd"
-				}
+				body : JSON.stringify({
+					/* "email":'a@a.com',
+					"pwd":"testuser" */
+					email : document.querySelector("#inputEmail").value,
+					pwd : document.querySelector("#inputPassword").value,
+				})
 			}).then(response => response.json())
 			.then(data => {
 				console.log(data.loginServiceResult);
+				if(data.loginServiceResult == 1){
+					location.href="/";
+				}else{
+					alert("아이디와 비밀번호가 일치하지 않습니다.");
+				}
 			})
 		}
 		var loginSubmitButton = document.querySelector("#submitButton");

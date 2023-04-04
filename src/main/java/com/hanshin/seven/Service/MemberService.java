@@ -13,6 +13,8 @@ import com.hanshin.seven.Domain.Member;
 import com.hanshin.seven.Repository.MemberDao;
 import com.hanshin.seven.Util.EncryptUtils;
 
+import jakarta.servlet.http.HttpSession;
+
 @Service
 public class MemberService {
 	
@@ -39,15 +41,17 @@ public class MemberService {
 	
 	// 1 성공
 	// 0 실패
-	public int login(Member member) {
+	public int login(HttpSession session, Member member) {
 		try {
 			member.setPwd(EncryptUtils.encrypt(member.getPwd()) );
+			logger.debug("[MemberService login] : " + member);
 		}catch(Exception e) {
 			logger.debug("exception in login() ...");
 		}
 		List<Member> selectedMemberList = memberDao.selectMember(member);
 		
 		if(selectedMemberList.size() == 1) {
+			session.setAttribute("otm_email", selectedMemberList.get(0).getEmail());
 			return 1;
 		}else {
 			return 0;
