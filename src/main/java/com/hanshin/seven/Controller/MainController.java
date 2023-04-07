@@ -58,7 +58,8 @@ public class MainController {
 		logger.debug("pages-sign-in controller ...");
 		
 		if(session.getAttribute("otm_email")!=null) { //null이면 로그인 안한 사람 null이 아니면 로그인한 사람
-			return "index";
+//			return "index";
+			return "redirect:/index";
 		}
 		
 		return "pages-sign-in";

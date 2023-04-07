@@ -60,7 +60,7 @@ public class MemberService {
 	
 	public int logout(HttpSession session) {
 		session.removeAttribute("otm_email");
-		
+		System.out.println("After removal: " + session.getAttribute("otm_email"));
 		return 1;
 	}
 	
