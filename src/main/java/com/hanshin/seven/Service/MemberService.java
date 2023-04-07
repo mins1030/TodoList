@@ -58,4 +58,10 @@ public class MemberService {
 		}
 	}
 	
+	public int logout(HttpSession session) {
+		session.removeAttribute("otm_email");
+		
+		return 1;
+	}
+	
 }

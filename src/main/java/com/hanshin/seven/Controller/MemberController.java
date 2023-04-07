@@ -47,4 +47,19 @@ public class MemberController {
 		return result;
 
 	}
+	
+	@PostMapping("/logout")
+//	public Map<String, Object> logout(HttpSession session) {
+	public String logout(HttpSession session) {
+		int serviceResult = memberService.logout(session);
+		Map<String, Object> result = new HashMap<String, Object>();
+
+		// logout 성긍 -> 1
+		// logout 실패 -> 0
+		logger.debug("[controller Login]serviceResult : " + serviceResult);
+		result.put("loginServiceResult", serviceResult);
+
+		return "index";
+
+	}
 }

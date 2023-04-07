@@ -15,7 +15,7 @@ public class MainController {
 	@Autowired
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String index() {
 		logger.debug("index controller ...");
 		return "index";
