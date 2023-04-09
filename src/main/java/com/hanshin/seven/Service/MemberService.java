@@ -63,5 +63,17 @@ public class MemberService {
 		System.out.println("After removal: " + session.getAttribute("otm_email"));
 		return 1;
 	}
+	// 1 성공
+	// 0 실패
+	public String findId(Member member) {
+		
+		List<Member> selectedMemberList = memberDao.selectMember(member);
+		
+		if(selectedMemberList.size() == 1) {
+			return selectedMemberList.get(0).getEmail();
+		}else {
+			return "0";
+		}
+	}
 	
 }

@@ -64,6 +64,17 @@ public class MainController {
 		
 		return "pages-sign-in";
 	}
+	@GetMapping("/find-id")
+	public String findId(HttpSession session) {
+		logger.debug("find-id controller ...");
+		
+		if(session.getAttribute("otm_empNum")!=null) { 
+//			return "index";
+			return "redirect:/pages-sign-in";
+		}
+		
+		return "find-id";
+	}
 	@GetMapping("/pages-sign-up")
 	public String pagesSignUp() {
 		logger.debug("pages-sign-up controller ...");

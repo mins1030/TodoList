@@ -24,6 +24,9 @@
         <if test="pwd != null">
         	and pwd = #{pwd}
         </if>
+        <if test="name != null">
+        	and name = #{name}
+        </if>
     </select>
 
     <select id="selectMemberInfo" resultType="com.hanshin.seven.Domain.Member">
@@ -37,7 +40,17 @@
         from member
         where emp_num = #{empNum}
     </select>
-    
+    <select id="findId" resultType="com.hanshin.seven.Domain.Member">
+		select  
+			name, 
+        	emp_num, 
+        	dept, 
+        	pos, 
+        	email, 
+        	pwd
+        from member
+        where name=#{name} and emp_num = #{empNum}
+	</select>
 	<insert id="insertMember" parameterType="com.hanshin.seven.Domain.Member">
 		INSERT INTO member 
 			VALUES(#{name}, #{empNum}, #{dept}, #{pos}, #{email}, #{pwd})

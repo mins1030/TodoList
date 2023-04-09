@@ -10,12 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.hanshin.seven.Domain.Member;
 import com.hanshin.seven.Service.MemberService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -59,7 +62,7 @@ public class MemberController {
 
 		// logout 성긍 -> 1
 		// logout 실패 -> 0
-		logger.debug("[controller Login]serviceResult : " + serviceResult);
+		logger.debug("[controller Logout]serviceResult : " + serviceResult);
 		result.put("logoutServiceResult", serviceResult);
 
 //		return "index";
@@ -67,4 +70,17 @@ public class MemberController {
 //		return new RedirectView("index");
 
 	}
+	@PostMapping("/findId")
+	@ResponseBody
+	public Map<String, Object> findId(@RequestBody Member member) {
+		logger.debug("find-id controller ...");
+		logger.debug("Member[selectMember in controller] : " + member);
+		String serviceResult = memberService.findId(member);
+		Map<String, Object> result = new HashMap<String, Object>();
+		
+		result.put("serviceResult", serviceResult);
+		
+		return result;
+	}
+	
 }
