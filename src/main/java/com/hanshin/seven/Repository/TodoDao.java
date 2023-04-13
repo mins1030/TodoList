@@ -3,9 +3,13 @@ package com.hanshin.seven.Repository;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.hanshin.seven.Controller.MainController;
+import com.hanshin.seven.Domain.Member;
 import com.hanshin.seven.Domain.Todo;
 
 
@@ -15,6 +19,12 @@ public class TodoDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	
+	public List<Todo> selectTodo(Todo todo) {
+		logger.debug("Todo[selectTodo in dao] : " + todo);
+		return sqlSession.selectList("TodorMapper.selectTodo", todo);
+	}
 	public Todo selectTodoInfo(String todoId) {
 		return sqlSession.selectOne("TodoMapper.selectTodoInfo", todoId);
 	}

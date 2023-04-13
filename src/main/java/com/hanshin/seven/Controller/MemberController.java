@@ -70,6 +70,7 @@ public class MemberController {
 //		return new RedirectView("index");
 
 	}
+	
 	@PostMapping("/findId")
 	@ResponseBody
 	public Map<String, Object> findId(@RequestBody Member member) {
@@ -83,4 +84,16 @@ public class MemberController {
 		return result;
 	}
 	
+	@PostMapping("/findPwd")
+	@ResponseBody
+	public Map<String, Object> findPwd(@RequestBody Member member) {
+		logger.debug("find-pwd controller ...");
+		logger.debug("Member[selectMember in controller] : " + member);
+		String serviceResult = memberService.findPwd(member);
+		Map<String, Object> result = new HashMap<String, Object>();
+		
+		result.put("serviceResult", serviceResult);
+		
+		return result;
+	}	
 }

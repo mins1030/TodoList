@@ -12,16 +12,15 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html" />
+	<link rel="canonical" href="https://demo-basic.adminkit.io/mk-todo.html" />
 
-	<title>Sign Up</title>
+	<title>Make To do</title>
 
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
 	<main class="d-flex w-100">
 		<div class="container d-flex flex-column">
 			<div class="row vh-100">
@@ -29,7 +28,7 @@
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h2">회원가입</h1>
+							<h1 class="h2">To do 작성</h1>
 						<!--  	<p class="lead">
 								Start creating the best possible user experience for you customers.
 							</p> -->
@@ -38,36 +37,36 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form action="/signUp" method="post">
+									<form action="/mkTodo" method="post">
 										<div class="mb-3">
-											<label class="form-label">이름</label>
-											<input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
+											<label class="form-label">담당자</label>
+											<input class="form-control form-control-lg" type="text" name="juniorName" placeholder="Enter junior name" />
 										</div>
 										<div class="mb-3">
-											<label class="form-label">사원번호</label>
-											<input class="form-control form-control-lg" type="text" name="empNum" placeholder="Enter your employee number" />
+											<label class="form-label">담당자 부서</label>
+											<input class="form-control form-control-lg" type="text" name="juniorDept" placeholder="Enter junior department" />
 										</div>
 										<div class="mb-3">
-											<label class="form-label">부서</label>
-											<input class="form-control form-control-lg" type="text" name="dept" placeholder="Enter your department" />
+											<label class="form-label">시작일</label>
+											<input class="form-control form-control-lg" type="datetime-local" name="startDate" placeholder="Enter startDate" />
 										</div>
 										<div class="mb-3">
-											<label class="form-label">직급</label>
-											<input class="form-control form-control-lg" type="text" name="pos" placeholder="Enter your position" />
+											<label class="form-label">마감일</label>
+											<input class="form-control form-control-lg" type="datetime-local" name="deadDate" placeholder="Enter deadDate" />
 										</div>
 										<div class="mb-3">
-											<label class="form-label">이메일</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<label class="form-label">중요도</label>
+											<input class="form-control form-control-lg" type="text" name="importance" placeholder="Enter importance" />
 										</div>
-										<div class="mb-3">
-											<label class="form-label">비밀번호</label>
-											<input class="form-control form-control-lg" type="password" name="pwd" placeholder="Enter your password" />
-										</div>
+		
 										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-lg btn-primary">회원가입</button>
+											<button type="submit" class="btn btn-lg btn-primary">생성</button>
 											<!-- <a href="/index" class="btn btn-lg btn-primary">회원가입</a> -->
 											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
-										</div>
+										
+									<!-- 		<button type="submit" class="btn btn-lg btn-primary" onclick="location.href='/index'">취소</button>  -->
+								
+										</div> 
 									</form>
 								</div>
 							</div>
@@ -80,6 +79,7 @@
 	</main>
 
 	<script src="js/app.js"></script>
+	
 
 </body>
 

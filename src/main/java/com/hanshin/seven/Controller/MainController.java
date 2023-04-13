@@ -68,13 +68,26 @@ public class MainController {
 	public String findId(HttpSession session) {
 		logger.debug("find-id controller ...");
 		
-		if(session.getAttribute("otm_empNum")!=null) { 
+		if(session.getAttribute("otm_email")!=null) { 
 //			return "index";
 			return "redirect:/pages-sign-in";
 		}
 		
 		return "find-id";
 	}
+	
+	@GetMapping("/find-pwd")
+	public String findPwd(HttpSession session) {
+		logger.debug("find-pwd controller ...");
+		
+		if(session.getAttribute("otm_email")!=null) { 
+//			return "index";
+			return "redirect:/pages-sign-in";
+		}
+		
+		return "find-pwd";
+	}
+	
 	@GetMapping("/pages-sign-up")
 	public String pagesSignUp() {
 		logger.debug("pages-sign-up controller ...");
@@ -104,6 +117,15 @@ public class MainController {
 	public String upgradeToPro() {
 		logger.debug("upgrade-to-pro controller ...");
 		return "upgrade-to-pro";
+	}
+	@GetMapping("/mk-todo")
+	public String mkTodo(HttpSession session) {
+		if(session.getAttribute("otm_email")==null) { 
+//			return "index";
+			return "redirect:/pages-sign-in";
+		}
+		logger.debug("mk-todo controller ...");
+		return "mk-todo";
 	}
 //	
 //	@RequestMapping("/loginPage")

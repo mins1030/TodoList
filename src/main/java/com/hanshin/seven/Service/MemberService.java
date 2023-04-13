@@ -76,4 +76,14 @@ public class MemberService {
 		}
 	}
 	
+	public String findPwd(Member member) {
+		
+		List<Member> selectedMemberList = memberDao.selectMember(member);
+		
+		if(selectedMemberList.size() == 1) {
+			return selectedMemberList.get(0).getPwd();
+		}else {
+			return "0";
+		}
+	}
 }
