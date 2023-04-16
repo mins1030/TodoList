@@ -4,7 +4,33 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="TodoMapper">
-
+	<select id="selectTodo" resultType="com.hanshin.seven.Domain.Todo">
+        select 
+        	task, 
+        	senior_name, 
+        	startDate, 
+        	deadDate, 
+        	importance
+        from todo
+        where junior_name = #{juniorName}
+        order by importance,deadDate
+        <if test="task != null  ">
+        	and task = #{task}
+        </if>
+        <if test="senior_name != null">
+        	and senior_name = #{seniorName}
+        </if>
+        <if test="startDate != null">
+        	and startDate = #{startDate}
+        </if>
+        <if test="deadDate != null">
+        	and deadDate = #{deadDate}
+        </if>
+        <if test="importance != null and importance != 0">
+        	and importance = #{importance}
+        </if>
+    </select>
+    
     <select id="selectTodoInfo" resultType="com.hanshin.seven.Domain.Todo">
         select 
         	todo_id, 

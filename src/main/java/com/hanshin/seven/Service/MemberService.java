@@ -34,6 +34,15 @@ public class MemberService {
 		
 		return memberDao.insertMember(member);
 	}
+	public int updateMember(Member member){
+		try {
+			member.setPwd(EncryptUtils.encrypt(member.getPwd()) );
+		}catch(Exception e) {
+			logger.debug("exception in updateMember() ...");
+		}
+		
+		return memberDao.updateMember(member);
+	}
 	
 	public List<Member> selectMember (Member member) {
 		return memberDao.selectMember(member);

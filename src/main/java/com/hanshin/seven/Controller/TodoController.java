@@ -1,6 +1,7 @@
 package com.hanshin.seven.Controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -36,6 +37,16 @@ public class TodoController {
 		todoService.insertTodo(session, todo);
 			
 		return "index";
+	}
+	@PostMapping("/todoList")
+	@ResponseBody
+	public Map<String, Object> task(HttpSession session) {		
+		 List<Todo> serviceResult = todoService.selectTodo(session);
+		 
+		 Map<String, Object> result = new HashMap<String, Object>();
+		 
+		 result.put("todoListServiceResult", serviceResult);
+		return result;
 	}
 	
 	

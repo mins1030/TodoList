@@ -42,13 +42,24 @@ public class TodoService {
 			todo.setSeniorDept(seniorMember.getDept());
 			todo.setTodoId(todoId);
 		}catch(Exception e) {
-			logger.debug("exception in insertMember() ...");
+			logger.debug("exception in insertTodo() ...");
 		}
 		
 		return todoDao.insertTodo(todo);
 	}
-	public List<Todo> selectTodo (Todo todo) {
-		return todoDao.selectTodo(todo);
+	public List<Todo> selectTodo (HttpSession session) {
+		String juniorEmail = (String)(session.getAttribute("otm_email"));
+		Member m = new Member();
+		m.setEmail(juniorEmail);
+		
+		Member juniorMember = memberDao.selectMember(m).get(0);
+		Todo td = new Todo();
+		try {
+			td.setJuniorName(juniorMember.getName());
+		}catch(Exception e) {
+			logger.debug("exception in selectTodo() ...");
+		}
+		return todoDao.selectTodo(td);
 	}
 	
 }

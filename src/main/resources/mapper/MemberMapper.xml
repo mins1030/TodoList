@@ -68,7 +68,7 @@
 			pos= #{pos},
 			email= #{email},
 			pwd= #{pwd}
-		WHERE emp_num = #{empNum}	
+		WHERE email = #{email}	
 	</update>	
 	<delete id="deleteMember" parameterType="com.hanshin.seven.Domain.Member">
 		DELETE FROM member
