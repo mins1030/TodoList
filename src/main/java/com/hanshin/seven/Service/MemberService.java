@@ -95,4 +95,24 @@ public class MemberService {
 			return "0";
 		}
 	}
+	public String profile(Member member) {
+	      
+	      List<Member> selectedMemberList = memberDao.selectMember(member);
+	      
+	      if(selectedMemberList.size() == 1) {
+	         return selectedMemberList.get(0).getEmail();
+	      }else {
+	         return "0";
+	      }
+	   }
+	   
+	   public int changeInfo(Member member){
+	      try {
+	         member.setPwd(EncryptUtils.encrypt(member.getPwd()) );
+	      }catch(Exception e) {
+	         logger.debug("exception in insertMember() ...");
+	      }
+	      
+	      return memberDao.updateMember(member);
+	   }
 }

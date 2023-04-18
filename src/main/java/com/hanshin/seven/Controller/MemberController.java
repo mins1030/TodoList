@@ -17,6 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.hanshin.seven.Domain.Member;
 import com.hanshin.seven.Service.MemberService;
+import com.hanshin.seven.Service.SendEmailService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -28,6 +29,9 @@ public class MemberController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	   SendEmailService sendEmailService;
 
 	@PostMapping("/signUp")
 	public String signUp(Member member) {		
@@ -85,15 +89,35 @@ public class MemberController {
 	}
 	
 	@PostMapping("/findPwd")
-	@ResponseBody
-	public Map<String, Object> findPwd(@RequestBody Member member) {
-		logger.debug("find-pwd controller ...");
-		logger.debug("Member[selectMember in controller] : " + member);
-		String serviceResult = memberService.findPwd(member);
-		Map<String, Object> result = new HashMap<String, Object>();
-		
-		result.put("serviceResult", serviceResult);
-		
-		return result;
-	}	
+	   @ResponseBody
+	   public Map<String, Object> findPwd(@RequestBody Member member) {
+	      logger.debug("find-pwd controller ...");
+	      logger.debug("Member[selectMember in controller] : " + member);
+//	      String serviceResult = memberService.findPwd(member);
+	      String serviceResult = sendEmailService.changePassword(member.getName(), member.getEmail());
+	      Map<String, Object> result = new HashMap<String, Object>();
+	      
+	      result.put("serviceResult", serviceResult);
+	      
+	      return result;
+	   }	
+	@PostMapping("/profile")
+	   @ResponseBody
+	   public Map<String, Object> profile(@RequestBody Member member) {
+	      logger.debug("profile controller ...");
+	      logger.debug("Member[selectMember in controller] : " + member);
+	      String serviceResult = memberService.profile(member);
+	      Map<String, Object> result = new HashMap<String, Object>();
+	      
+	      result.put("serviceResult", serviceResult);
+	      
+	      return result;
+	   }
+	   
+	   @PostMapping("/changeInfo")
+	   public String changeInfo(Member member) {      
+	      memberService.changeInfo(member);
+	         
+	      return "profile";
+	   }
 }

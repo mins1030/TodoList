@@ -127,6 +127,18 @@ public class MainController {
 		logger.debug("mk-todo controller ...");
 		return "mk-todo";
 	}
+	@GetMapping("/profile")
+	   public String profile() {
+	      logger.debug("profile controller ...");
+	      return "profile";
+	   }
+	   
+	   @GetMapping("/changeInfo")
+	   public String changeInfo() {
+	      logger.debug("changeInfo controller ...");
+	      return "changeInfo";
+	   }
+	   
 //	
 //	@RequestMapping("/loginPage")
 //	public String toLoginPage() {
