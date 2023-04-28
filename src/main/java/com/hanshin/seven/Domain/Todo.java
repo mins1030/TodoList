@@ -47,7 +47,7 @@ public class Todo {
 
 	@Override
 	public String toString() {
-		return "Member [todoId=" + todoId + ", seniorName=" + seniorName + ", seniorDept=" + seniorDept + ", "
+		return "Todo [todoId=" + todoId + ", seniorName=" + seniorName + ", seniorDept=" + seniorDept + ", "
 				+ "juniorName=" + juniorName + ", juniorDept=" + juniorDept 
 				+ ", task=" + task + "startDate=" + startDate +"deadDate=" + deadDate +"importance=" + importance +"]";
 	}

@@ -23,7 +23,7 @@ public class TodoDao {
 	
 	public List<Todo> selectTodo(Todo todo) {
 		logger.debug("Todo[selectTodo in dao] : " + todo);
-		return sqlSession.selectList("TodorMapper.selectTodo", todo);
+		return sqlSession.selectList("TodoMapper.selectTodo", todo);
 	}
 	public Todo selectTodoInfo(String todoId) {
 		return sqlSession.selectOne("TodoMapper.selectTodoInfo", todoId);

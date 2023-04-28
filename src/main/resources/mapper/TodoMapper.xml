@@ -8,6 +8,9 @@
         select 
         	task, 
         	senior_name, 
+        	senior_dept,
+        	junior_name, 
+        	junior_dept,
         	startDate, 
         	deadDate, 
         	importance
@@ -17,7 +20,7 @@
         <if test="task != null  ">
         	and task = #{task}
         </if>
-        <if test="senior_name != null">
+        <if test="seniorName != null">
         	and senior_name = #{seniorName}
         </if>
         <if test="startDate != null">
