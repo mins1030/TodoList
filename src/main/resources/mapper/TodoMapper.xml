@@ -13,7 +13,8 @@
         	junior_dept,
         	startDate, 
         	deadDate, 
-        	importance
+        	importance,
+        	complete
         from todo
         where junior_name = #{juniorName}
         order by importance DESC, deadDate
@@ -44,7 +45,8 @@
         	task,
         	startDate,
         	deadDate,
-        	importance
+        	importance,
+        	complete
         from todo
         where todo_id = #{todoId}
     </select>
@@ -52,7 +54,7 @@
 	<insert id="insertTodo" parameterType="com.hanshin.seven.Domain.Todo">
 		INSERT INTO todo 
 			VALUES(#{todoId}, #{seniorName}, #{seniorDept}, #{juniorName}, 
-			#{juniorDept}, #{task}, #{startDate}, #{deadDate}, #{importance})
+			#{juniorDept}, #{task}, #{startDate}, #{deadDate}, #{importance}, 'N')
 	</insert>
 	
 	<select id="findAllTodo" parameterType="com.hanshin.seven.Domain.Todo">
@@ -64,7 +66,8 @@
         	   task,
         	   startDate,
         	   deadDate,
-        	   importance
+        	   importance,
+			   complete
         from todo
 	</select>
 	
@@ -78,7 +81,8 @@
         	   task= #{task},
         	   startDate= #{startDate},
         	   deadDate= #{deadDate},
-        	   importance= #{importance}
+        	   importance= #{importance},
+        	   complete= #{complete}
 		WHERE todo_id = #{todoId}	
 	</update>
 	

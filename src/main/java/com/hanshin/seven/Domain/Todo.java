@@ -24,6 +24,7 @@ public class Todo {
 	private LocalDateTime startDate;
 	private LocalDateTime deadDate;;
 	private int importance;
+	private String complete;
 	
 	
 	
@@ -32,7 +33,7 @@ public class Todo {
 	}
 
 	public Todo(String todoId, String seniorName, String seniorDept, String juniorName, String juniorDept, 
-			String task, LocalDateTime startDate, LocalDateTime deadDate, int importance) {
+			String task, LocalDateTime startDate, LocalDateTime deadDate, int importance, String complete) {
 		super();
 		this.todoId = todoId;
 		this.seniorName = seniorName;
@@ -43,13 +44,14 @@ public class Todo {
 		this.startDate = startDate;
 		this.deadDate = deadDate;
 		this.importance = importance;
+		this.complete = complete;
 	}
 
 	@Override
 	public String toString() {
 		return "Todo [todoId=" + todoId + ", seniorName=" + seniorName + ", seniorDept=" + seniorDept + ", "
 				+ "juniorName=" + juniorName + ", juniorDept=" + juniorDept 
-				+ ", task=" + task + "startDate=" + startDate +"deadDate=" + deadDate +"importance=" + importance +"]";
+				+ ", task=" + task + "startDate=" + startDate +"deadDate=" + deadDate +"importance=" + importance +"complete=" + complete +"]";
 	}
 	
 	public String getTodoId() {
@@ -105,6 +107,12 @@ public class Todo {
 	}
 	public void setImportance(int importance) {
 		this.importance = importance;
+	}
+	public String getComplete() {
+		return complete;
+	}
+	public void setComplete(String complete) {
+		this.complete = complete;
 	}
 	
 	
