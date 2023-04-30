@@ -136,6 +136,15 @@ public class MainController {
 		logger.debug("todoList controller ...");
 		return "todoList";
 	}
+	@GetMapping("/todoList_grid")
+	public String todoList_grid(HttpSession session) {
+		if(session.getAttribute("otm_email")==null) { 
+//			return "index";
+			return "redirect:/pages-sign-in";
+		}
+		logger.debug("todoList_grid controller ...");
+		return "todoList_grid";
+	}
 	@GetMapping("/profile")
 	public String profile() {
 	    logger.debug("profile controller ...");
