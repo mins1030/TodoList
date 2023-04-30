@@ -137,16 +137,16 @@ public class MainController {
 		return "todoList";
 	}
 	@GetMapping("/profile")
-	   public String profile() {
-	      logger.debug("profile controller ...");
-	      return "profile";
-	   }
+	public String profile() {
+	    logger.debug("profile controller ...");
+	    return "profile";
+	}
 	   
-	   @GetMapping("/changeInfo")
-	   public String changeInfo() {
-	      logger.debug("changeInfo controller ...");
-	      return "changeInfo";
-	   }
+	 @GetMapping("/changeInfo")
+	 public String changeInfo() {
+		logger.debug("changeInfo controller ...");
+		return "changeInfo";
+	 }
 	   
 //	
 //	@RequestMapping("/loginPage")

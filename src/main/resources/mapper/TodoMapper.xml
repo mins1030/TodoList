@@ -16,7 +16,7 @@
         	importance
         from todo
         where junior_name = #{juniorName}
-        order by importance,deadDate
+        order by importance DESC, deadDate
         <if test="task != null  ">
         	and task = #{task}
         </if>
