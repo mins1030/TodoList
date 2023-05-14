@@ -6,6 +6,7 @@
 <mapper namespace="TodoMapper">
 	<select id="selectTodo" resultType="com.hanshin.seven.Domain.Todo">
         select 
+        	todo_id,
         	task, 
         	senior_name, 
         	senior_dept,

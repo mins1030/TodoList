@@ -31,7 +31,7 @@ class TodoRepositoryTests {
 	  public void testB() throws Exception {
 		  //String todoId = UUID.randomUUID().toString();
 		  Todo insertTodo = new Todo("testTodoId","testSeniorName","testSeniorDept","testJuniorName","testJuniorDept",
-				  "testTask",LocalDateTime.now(), LocalDateTime.now(),1); 
+				  "testTask",LocalDateTime.now(), LocalDateTime.now(),1,"complete"); 
 		  todoDao.insertTodo(insertTodo);  
 		  Todo todo = todoDao.selectTodoInfo("testTodoId"); 
 		  System.out.println("Todo : " + todo); 
@@ -40,7 +40,7 @@ class TodoRepositoryTests {
 	  @Test
 	  public void testC() throws Exception {
 		  Todo updateTodo = new Todo("testTodoId","testSeniorName","testSeniorDept","testJuniorName","testJuniorDept",
-				  "testTask",LocalDateTime.now(),LocalDateTime.now(),1); 
+				  "testTask",LocalDateTime.now(),LocalDateTime.now(),1,"complete"); 
 		  todoDao.updateTodo(updateTodo);  
 		  Todo todo = todoDao.selectTodoInfo("testTodoId"); 
 		  System.out.println("Todo : " + todo); 
@@ -49,7 +49,7 @@ class TodoRepositoryTests {
 	  @Test
 	  public void testD() throws Exception {
 		  Todo deleteTodo = new Todo("testTodoId","testSeniorName","testSeniorDept","testJuniorName","testJuniorDept",
-				  "testTask",LocalDateTime.now(),LocalDateTime.now(),1);
+				  "testTask",LocalDateTime.now(),LocalDateTime.now(),1,"complete");
 		  todoDao.deleteTodo(deleteTodo);  
 		  Todo checkTodo = todoDao.selectTodoInfo("testTodoId"); 
 		  System.out.println("Todo : " + checkTodo); 

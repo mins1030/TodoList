@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<html lang="en">
 
 <head>
    <meta charset="utf-8">
@@ -12,7 +12,7 @@
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-   <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+   <link rel="canonical" href="https://demo-basic.adminkit.io/profile.html" />
 
    <title>Office Task Master</title>
 
@@ -20,130 +20,42 @@
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
+<style>
+   h1 { font-size: 10em; }
+   #sub_h1 { font-size : 5em; color: gray;}
+   #div1 { background-color: lightgray;
+         height:200px; margin-bottom: 100px;
+         display: flex; justify-content: center; align-items: center;}
+   h2 { font-size: 2.5em; text-align: center; margin-top: 100px; }
+   #loginText { color: darkred;}
+</style>
+
 <body>
    <div class="wrapper">
       <nav class="sidebar js-sidebar" th:replace="fragments/sidebar.html :: sidebar">
       </nav>
-
       <div class="main">
       <nav class="navbar navbar-expand navbar-light navbar-bg" th:replace="fragments/navbar.html :: navbar">
       </nav>
-   
-	<main class="content">
-		<div class="row">
-			<div class="col-12 col-lg-8 col-xxl-9 d-flex">
-				<div class="card flex-fill">
-					<!-- <div class="card-header">
-
-						<h5 class="card-title mb-0">할 일 목록</h5>
-					</div>
-					<table class="table table-hover my-0">
-						<thead>
-							<tr>
-								<th>할 일</th>
-								<th class="d-none d-xl-table-cell">할당자</th>
-								<th class="d-none d-xl-table-cell">시작일</th>
-								<th>마감일</th>
-								<th class="d-none d-md-table-cell">중요도</th>
-							</tr>
-						</thead>
-						<tbody id="index-tbody"> -->
-<!-- 							<tr>
-								<td>Project Apollo</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-success">Done</span></td>
-								<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-							</tr>
-							<tr>
-								<td>Project Fireball</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-danger">Cancelled</span></td>
-								<td class="d-none d-md-table-cell">William Harris</td>
-							</tr>
-							<tr>
-								<td>Project Hades</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-success">Done</span></td>
-								<td class="d-none d-md-table-cell">Sharon Lessman</td>
-							</tr>
-							<tr>
-								<td>Project Nitro</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-warning">In progress</span></td>
-								<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-							</tr>
-							<tr>
-								<td>Project Phoenix</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-success">Done</span></td>
-								<td class="d-none d-md-table-cell">William Harris</td>
-							</tr>
-							<tr>
-								<td>Project X</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-success">Done</span></td>
-								<td class="d-none d-md-table-cell">Sharon Lessman</td>
-							</tr>
-							<tr>
-								<td>Project Romeo</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-success">Done</span></td>
-								<td class="d-none d-md-table-cell">Christina Mason</td>
-							</tr>
-							<tr>
-								<td>Project Wombat</td>
-								<td class="d-none d-xl-table-cell">01/01/2021</td>
-								<td class="d-none d-xl-table-cell">31/06/2021</td>
-								<td><span class="badge bg-warning">In progress</span></td>
-								<td class="d-none d-md-table-cell">William Harris</td>
-							</tr> 
-						</tbody>
-					</table> -->
-				</div>
-			</div>
-		</div>
-<!--          <form action="todoList" method="post">
-         <table id="userTable">
-			<thead>
-			    <tr>
-			         <th>할 일</th>
-			         <th>할당자</th>
-			         <th>시작일</th>
-			         <th>마감일</th>
-			         <th>중요도</th>
-			     </tr>
-			</thead>
-			<tbody>
-			     <tr th:each="user : ${selectTodo}">
-			         <td th:text="${user.task}">task</td>    
-			         <td th:text="${user.seniorName}">senior_name</td>
-			         <td th:text="${user.startDate}">startDate</td>
-			         <td th:text="${user.deadDate}">deadDate</td>
-			         <td th:text="${user.importance}">importance</td>
-			     </tr>
-			</tbody>
-   		  </table> 
-         </form> -->
-          
-            
-          
+      
+         <main class="content">
+            <div class="text-center mt-4">
+               <h1><strong>OTM</strong></h1>
+               <div id = "div1">
+               <h1 id = "sub_h1">(Office Task Master System)</h1>
+               </div>
+            </div>
+            <hr>
+            <h2>시스템을 이용하려면 <strong id = "loginText">로그인</strong> 해주세요.</h2>
          </main>
-
+         
          <footer class="footer" th:replace="fragments/footer.html :: footer">
          </footer>
       </div>
    </div>
 
    <script src="js/app.js"></script>
-   <script src="custom/js/index_custom.js"></script>
-   
+
 </body>
 
 </html>

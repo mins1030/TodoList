@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+   <meta name="author" content="AdminKit">
+   <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+   <link rel="canonical" href="https://demo-basic.adminkit.io/profile.html" />
+
+   <title>Office Task Master</title>
+
+   <link href="css/app.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+   
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+   table { margin-left : auto; margin-right : auto; margin-top: 30px;
+         border: 5px solid black;}
+   #tr1 { background-color: black; height: 200px; }
+   #tr2 { background-color: rgb(192, 192, 192); height: 400px; }
+   #t_title { background-color: white; height: 50px; font-size: 23px; }
+   td { border-width: 5px; border-color: black; width: 400px; }
+   #info { border-width: 5px; border-color: black; width: 400px;
+         font-size: 18px; }
+</style>
+
+<body>
+   <div class="wrapper">
+      <nav class="sidebar js-sidebar" th:replace="fragments/sidebar.html :: sidebar">
+      </nav>
+      <div class="main">
+      <nav class="navbar navbar-expand navbar-light navbar-bg" th:replace="fragments/navbar.html :: navbar">
+      </nav>
+      
+         <main class="content">
+          <div class="text-center">
+            
+            </div>
+            <div class="text-center mt-4">
+               <table>
+               <tr id = "tr1">
+                  <td>
+                     <img src="img/avatars/avatar-2.jpg" alt="To-Do List" width="132" height="132" />
+                  </td>
+                   <td>
+                     <img src="img/avatars/avatar-3.jpg" alt="TimeLine" width="132" height="132" />
+                  </td>
+                   <td>
+                     <img src="img/avatars/avatar-4.jpg" alt="Calendar" width="132" height="132" />
+                  </td>
+               </tr>
+               <tr id = "t_title">
+               <td>
+                  <strong>To-Do List</strong>
+               </td>
+               <td>
+                  <strong>TimeLine</strong>
+               </td>
+               <td>
+                  <strong>Calendar Memo</strong>
+               </td>
+               </tr>
+               <tr id = "tr2">
+               <td id = "info">
+                  <strong>해야 할 일들을<br>리스트로 간편하게!<br><br>회사 내 업무를<br>더이상 구두로 주고 받지 말고,<br>시스템으로 편리하게 주고 받아 보세요.</strong>
+               </td>
+               <td id = "info">
+                  <strong>마감 시간 임박ⵈ<br>프로젝트 기간은 잘 지켜낼 것!<br><br>각 활동마다<br>시작일과 마감일을<br>한 눈에 파악하여<br>일정을 효율적으로 관리해 보세요.</strong>
+               </td>
+               <td id = "info">
+                  <strong>날짜 별로<br>메모 습관 기르기!<br><br>어떤 업무를 수행했는지,<br>또 어떤 점이 부족했는지 등<br>매일 매일 정리하여<br>완료한 프로젝트를<br>스스로 피드백 해보세요.</strong>
+               </td>
+               </tr>
+            </table>
+            </div>
+         </main>
+         
+         <footer class="footer" th:replace="fragments/footer.html :: footer">
+         </footer>
+      </div>
+   </div>
+
+   <script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -4,17 +4,20 @@ document.addEventListener("DOMContentLoaded", async function(){
 
 
 async function main(){
-	console.log('use grid ...');
 	const Grid = tui.Grid;
 	var gridInstance = makeGridInstance(Grid);
+	
+	console.log('gridInstance : ', gridInstance);
+	
+	setFocusEvent(gridInstance);
+	setHrefToButton("/mk-todo", "bt");
+	setRemoveTodoButton("/rmTodo", "bt2", gridInstance);
 	
 	var todoList = await getTodoList();  
 	console.log('todoList : ', todoList);
 	
 	gridInstance.resetData(todoList);
-	Grid.applyTheme('striped')
-	
-	
+	Grid.applyTheme('striped');
 }
 
 async function getTodoList(){
@@ -24,6 +27,7 @@ async function getTodoList(){
 	
 	return todoList.todoListServiceResult;
 }
+
 function makeGridInstance(Grid){
 	const instance = new Grid({
 		el : document.getElementById('grid'),
@@ -61,5 +65,53 @@ function makeGridInstance(Grid){
 	});
 
 	return instance;
+}
+
+function setFocusEvent(gridInstance){
+	gridInstance.on('focusChange', (ev)=>{
+		console.log('ev : ', ev);
+		gridInstance.setSelectionRange({
+			start : [ev.rowKey, 0],
+			end : [ev.rowKey, gridInstance.getColumns().length]
+		});
+	});
+}
+
+function setHrefToButton(url, elementId){
+	var element = document.getElementById(elementId);
+	
+	element.addEventListener('click', ()=>{
+		location.href=url;
+	});
+}
+
+async function setRemoveTodoButton(url, elementId, gridInstance){
+	var element = document.getElementById(elementId);
+	
+	element.addEventListener('click', async ()=>{
+		var focusedCell = gridInstance.getFocusedCell();
+		var focusedRow = gridInstance.getRow(focusedCell.rowKey);
+		
+		console.log("focusedRow : ", focusedRow);
+		
+		var requestData = {
+			"todoId" : focusedRow.todoId
+		};
+		
+		console.log("requestData : ", requestData);
+		
+		var deleteCnt = await fetch(url, {
+			method:"POST",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(requestData),
+		});
+		
+		location.href="/todoList_grid"
+	});
+	
+
 }
 

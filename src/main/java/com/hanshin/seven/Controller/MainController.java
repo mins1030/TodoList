@@ -20,6 +20,11 @@ public class MainController {
 		logger.debug("index controller ...");
 		return "index";
 	}
+	@GetMapping("/login_index")
+	public String login_index() {
+	    logger.debug("login_index controller ...");
+	    return "login_index";
+	}
 	
 	@GetMapping("/test")
 	public String test() {

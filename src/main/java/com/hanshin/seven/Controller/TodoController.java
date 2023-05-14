@@ -48,7 +48,13 @@ public class TodoController {
 		 result.put("todoListServiceResult", serviceResult);
 		return result;
 	}
-	
+	@PostMapping("/rmTodo")
+	public String rmTodo(HttpSession session, @RequestBody Todo todo) {		
+		logger.debug("todo : " + todo);
+		todoService.deleteTodo(session, todo);
+			
+		return "index";
+	}
 	
 	
 }
