@@ -9,14 +9,14 @@ async function main(){
 	
 	console.log('gridInstance : ', gridInstance);
 	
-	setFocusEvent(gridInstance);
-	setHrefToButton("/mk-todo", "bt");
-	setRemoveTodoButton("/rmTodo", "bt2", gridInstance);
+	setFocusEvent(gridInstance);	// gridInstance에 FocusEvent 연결
+	setHrefToButton("/mk-todo", "bt");	// 버튼에 화면이동 연결
+	setRemoveTodoButton("/rmTodo", "bt2", gridInstance); // button에 삭제기능 연결
 	
-	var todoList = await getTodoList();  
+	var todoList = await getTodoList();  // db에 있는 todoList 가져오기
 	console.log('todoList : ', todoList);
 	
-	gridInstance.resetData(todoList);
+	gridInstance.resetData(todoList); // gridInstance에 데이터(todoList) 세팅
 	Grid.applyTheme('striped');
 }
 

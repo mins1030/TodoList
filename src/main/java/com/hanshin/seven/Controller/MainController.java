@@ -31,6 +31,11 @@ public class MainController {
 		logger.debug("test controller ...");
 		return "test";
 	}
+	@GetMapping("/timeLine")
+	public String timeLine() {
+		logger.debug("timeLine controller ...");
+		return "timeLine";
+	}
 	
 	@GetMapping("/charts-chartjs")
 	public String chartsChartjs() {
