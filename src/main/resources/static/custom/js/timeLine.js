@@ -12,12 +12,25 @@ async function main(){
 	var taskList = makeTaskList(todoList);
 	console.log('taskList : ', taskList);
 	
-	var gantt = makeGanttChart("#gantt", taskList);
+	var gantt = makeGanttChart("#gantt", taskList, getOptions());
+	
+	setViewModeEventToButton(gantt, "bt1", "Day");
+	setViewModeEventToButton(gantt, "bt2", "Week");
+	setViewModeEventToButton(gantt, "bt3", "Month");
+	
+	
 }
 
-function makeGanttChart(id, taskList){
-	return new Gantt(id, taskList,
-	{
+function setViewModeEventToButton(gantt, id, mode){
+	var btn = document.getElementById(id);
+	
+	btn.addEventListener('click', ()=>{
+		gantt.change_view_mode(mode)
+	});
+}
+
+function getOptions(){
+	return 	{
 	    header_height: 50,
 	    column_width: 30,
 	    step: 24,
@@ -31,6 +44,10 @@ function makeGanttChart(id, taskList){
 	    language: 'en', // or 'es', 'it', 'ru', 'ptBr', 'fr', 'tr', 'zh', 'de', 'hu'
 	    custom_popup_html: null
 	}
+}
+
+function makeGanttChart(id, taskList, options){
+	return new Gantt(id, taskList,options
 	);
 }
 
