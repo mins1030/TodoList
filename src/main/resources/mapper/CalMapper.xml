@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="CalMapper">
+	
+    
+    <select id="selectCal" resultType="com.hanshin.seven.Domain.Cal">
+        select 
+        	cal_id,
+        	cal_date,
+        	contents
+        from cal
+        where cal_id = #{calId}
+    </select>
+    
+	<insert id="insertCal" parameterType="com.hanshin.seven.Domain.Cal">
+		INSERT INTO cal 
+			VALUES(#{calId},#{calDate},#{contents})
+	</insert>
+	
+	<update id="updateCal" parameterType="com.hanshin.seven.Domain.Cal">
+		UPDATE cal SET
+			   cal_id = #{calId}	
+        	   cal_date= #{calDate},
+        	   contents= #{contents}
+		WHERE cal_id = #{calId}	
+	</update>
+	
+	<delete id="deleteCal" parameterType="com.hanshin.seven.Domain.Cal">
+		DELETE FROM cal
+		WHERE cal_id = #{calId}	
+	</delete>
+	
+</mapper>
+	

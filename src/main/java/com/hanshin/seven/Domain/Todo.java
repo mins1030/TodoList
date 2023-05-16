@@ -22,7 +22,7 @@ public class Todo {
 	private String juniorDept;
 	private String task;
 	private LocalDateTime startDate;
-	private LocalDateTime deadDate;;
+	private LocalDateTime deadDate;
 	private int importance;
 	private String complete;
 	

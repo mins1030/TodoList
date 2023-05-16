@@ -41,7 +41,7 @@ function getOptions(){
 	    padding: 18,
 	    view_mode: 'Month',
 	    date_format: 'YYYY-MM-DD',
-	    language: 'en', // or 'es', 'it', 'ru', 'ptBr', 'fr', 'tr', 'zh', 'de', 'hu'
+	    language: 'es', // or 'es', 'it', 'ru', 'ptBr', 'fr', 'tr', 'zh', 'de', 'hu'
 	    custom_popup_html: null
 	}
 }
