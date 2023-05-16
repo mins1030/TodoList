@@ -1,6 +1,7 @@
 package com.hanshin.seven.Controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.hanshin.seven.Domain.Member;
+import com.hanshin.seven.Domain.Todo;
 import com.hanshin.seven.Service.MemberService;
 import com.hanshin.seven.Service.SendEmailService;
 
@@ -100,19 +102,30 @@ public class MemberController {
 	    result.put("serviceResult", serviceResult);
 	      
 	    return result;
-	}	
+	}
 	@PostMapping("/profile")
 	@ResponseBody
-	public Map<String, Object> profile(@RequestBody Member member) {
-	    logger.debug("profile controller ...");
-	    logger.debug("Member[selectMember in controller] : " + member);
-	    String serviceResult = memberService.profile(member);
-	    Map<String, Object> result = new HashMap<String, Object>();
-	      
-	    result.put("serviceResult", serviceResult);
-	      
-	    return result;
+	public Map<String, Object> profile(HttpSession session) {		
+		 List<Member> serviceResult = memberService.profile(session);
+		 
+		 Map<String, Object> result = new HashMap<String, Object>();
+		 
+		 result.put("profileServiceResult", serviceResult);
+		return result;
 	}
+	/*
+	 * @PostMapping("/profile")
+	 * 
+	 * @ResponseBody public Map<String, Object> profile(@RequestBody Member member)
+	 * { logger.debug("profile controller ...");
+	 * logger.debug("Member[selectMember in controller] : " + member); String
+	 * serviceResult = memberService.profile(member); Map<String, Object> result =
+	 * new HashMap<String, Object>();
+	 * 
+	 * result.put("serviceResult", serviceResult);
+	 * 
+	 * return result; }
+	 */
 	   
 	@PostMapping("/changeInfo")
 	public String changeInfo(Member member) {      

@@ -1,7 +1,6 @@
 package com.hanshin.seven.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -95,15 +94,15 @@ public class MemberService {
 			return "0";
 		}
 	}
-	public String profile(Member member) {
-	      
+	public List<Member> profile(HttpSession session) {
+		  String email = (String)session.getAttribute("otm_email");
+		  Member member = new Member();
+		  
+		  member.setEmail(email);
+		  
 	      List<Member> selectedMemberList = memberDao.selectMember(member);
-	      
-	      if(selectedMemberList.size() == 1) {
-	         return selectedMemberList.get(0).getEmail();
-	      }else {
-	         return "0";
-	      }
+	     
+	      return selectedMemberList;
 	   }
 	   
 	   public int changeInfo(Member member){
