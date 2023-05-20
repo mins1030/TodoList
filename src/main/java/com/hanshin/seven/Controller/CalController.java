@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.hanshin.seven.Domain.Cal;
 import com.hanshin.seven.Domain.Member;
 import com.hanshin.seven.Domain.Todo;
 import com.hanshin.seven.Service.CalService;
@@ -33,7 +34,16 @@ public class CalController {
 	@Autowired
 	CalService calService;
 
-
+	@PostMapping("/calendarList")
+	@ResponseBody
+	public Map<String, Object> calendar(HttpSession session) {		
+		 List<Cal> serviceResult = calService.selectCal(session);
+		 
+		 Map<String, Object> result = new HashMap<String, Object>();
+		 
+		 result.put("calListServiceResult", serviceResult);
+		return result;
+	}
 	
 	
 }

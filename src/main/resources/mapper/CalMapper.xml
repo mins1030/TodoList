@@ -8,29 +8,42 @@
     
     <select id="selectCal" resultType="com.hanshin.seven.Domain.Cal">
         select 
+        	id,
+        	mem_id,
         	cal_id,
-        	cal_date,
-        	contents
+        	title,
+        	category,
+        	dueDateClass,
+        	cal_start,
+        	cal_end
         from cal
-        where cal_id = #{calId}
+        where 1=1
+        <if test="id != null  "> 
+        	and id = #{id}
+        </if>
     </select>
     
 	<insert id="insertCal" parameterType="com.hanshin.seven.Domain.Cal">
 		INSERT INTO cal 
-			VALUES(#{calId},#{calDate},#{contents})
+			VALUES(#{id},#{memId},#{calId},#{title},#{category},#{dueDateClass},#{calStart}#{calEnd},)
 	</insert>
 	
 	<update id="updateCal" parameterType="com.hanshin.seven.Domain.Cal">
 		UPDATE cal SET
-			   cal_id = #{calId}	
-        	   cal_date= #{calDate},
-        	   contents= #{contents}
-		WHERE cal_id = #{calId}	
+			   id = #{id},
+			   mem_id = #{memId},
+			   cal_id = #{calId},	
+        	   title= #{title},
+        	   category= #{category},
+        	   dueDateClass= #{dueDateClass},
+        	   cal_start= #{calStart},
+        	   cal_end= #{calEnd},
+		WHERE id = #{id}	
 	</update>
 	
 	<delete id="deleteCal" parameterType="com.hanshin.seven.Domain.Cal">
 		DELETE FROM cal
-		WHERE cal_id = #{calId}	
+		WHERE id = #{id}	
 	</delete>
 	
 </mapper>

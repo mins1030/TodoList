@@ -22,8 +22,9 @@ public class CalDao {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	public Cal selectCal(String calId) {
-		return sqlSession.selectOne("CalMapper.selectCal", calId);
+	public List<Cal> selectCal(Cal cal) {
+		logger.debug("Member[selectMember in dao] : " + cal);
+		return sqlSession.selectList("CalMapper.selectCal", cal);
 	}
 	
 	

@@ -15,9 +15,14 @@ import java.time.LocalDateTime;
 //@ToString
 
 public class Cal {
+	private String id;
+	private int memId;
 	private String calId;
-	private LocalDateTime calDate;
-	private String contents;
+	private String title;
+	private String category;
+	private String dueDateClass;
+	private LocalDateTime calStart;
+	private LocalDateTime calEnd;
 	
 	
 	
@@ -25,35 +30,69 @@ public class Cal {
 		super();
 	}
 
-	public Cal(String calId,LocalDateTime calDate,String contents) {
+	public Cal(String id,int memId,String calId,String title,String category,String dueDateClass,LocalDateTime calStart,LocalDateTime calEnd) {
 		super();
+		this.id = id;
+		this.memId = memId;
 		this.calId = calId;
-		this.calDate = calDate;
-		this.contents = contents;
+		this.title = title;
+		this.category = category;
+		this.dueDateClass = dueDateClass;
+		this.calStart = calStart;
+		this.calEnd = calEnd;
 	}
 
 	@Override
 	public String toString() {
-		return "Cal [calId=" + calId + "calDate=" + calDate +"contents=" + contents +"]";
+		return "Cal [id=" + id + "memId=" + memId +"calId=" + calId +"title=" + title +"category=" + category +"dueDateClass=" + dueDateClass +"calStart=" + calStart +"calEnd=" + calEnd +"]";
 	}
-	
-	public String getcalId() {
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public int getMemId() {
+		return memId;
+	}
+	public void setMemId(int memId) {
+		this.memId = memId;
+	}
+	public String getCalId() {
 		return calId;
 	}
-	public void setcalId(String calId) {
+	public void setCalId(String calId) {
 		this.calId = calId;
 	}
-	public LocalDateTime getcalDate() {
-		return calDate;
+	public String getTitle() {
+		return title;
 	}
-	public void setcalDate(LocalDateTime calDate) {
-		this.calDate = calDate;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getcontents() {
-		return contents;
+	public String getCategory() {
+		return category;
 	}
-	public void setcontents(String contents) {
-		this.contents = contents;
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getDueDateClass() {
+		return dueDateClass;
+	}
+	public void setDueDateClass(String dueDateClass) {
+		this.dueDateClass = dueDateClass;
+	}
+	public LocalDateTime getCalStart() {
+		return calStart;
+	}
+	public void setCalStart(LocalDateTime calStart) {
+		this.calStart = calStart;
+	}
+	public LocalDateTime getCalEnd() {
+		return calEnd;
+	}
+	public void setCalEnd(LocalDateTime calEnd) {
+		this.calEnd = calEnd;
 	}
 	
 	
