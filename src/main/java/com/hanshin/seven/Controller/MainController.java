@@ -31,6 +31,11 @@ public class MainController {
 		logger.debug("test controller ...");
 		return "test";
 	}
+	@GetMapping("/memo")
+	public String memo() {
+		logger.debug("memo controller ...");
+		return "memo";
+	}
 	@GetMapping("/timeLine")
 	public String timeLine() {
 		logger.debug("timeLine controller ...");

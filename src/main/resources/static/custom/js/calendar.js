@@ -13,7 +13,8 @@ async function main(){
 	console.log('eventList : ', calList);
 	
 	calendar.createEvents(calList);
-
+	
+	setHrefToButton("/memo", "bt3");	// 버튼에 화면이동 연결
 	/*calendar.createEvents([
 	  {
 	    id: '1',
@@ -96,4 +97,11 @@ function makeCalList(eventList){
 		
 	}
 	return calList;
+}
+function setHrefToButton(url, elementId){
+	var element = document.getElementById(elementId);
+	
+	element.addEventListener('click', ()=>{
+		location.href=url;
+	});
 }

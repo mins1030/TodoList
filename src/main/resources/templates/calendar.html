@@ -20,7 +20,7 @@
    <link href="css/frappe-gantt.css" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="custom/css/calendar.css" />
-   
+   <link rel="stylesheet" href="custom/css/todoList_grid.css" />
    <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
 
 </head>
@@ -36,6 +36,10 @@
          <main class="content">
             <h1 class="h3 mb-3">Calendar</h1>
             <div id="calendar" style="height:600px;min-height:600px"></div>
+            <div >
+            	<span style="float:right"><button id="bt4" class="btn btn-lg btn-black">메모삭제</button></span>
+	            <span style="float:right"><button id="bt3" class="btn btn-lg btn-black">메모생성</button></span>
+            </div>
          </main>
          
          <footer class="footer" th:replace="fragments/footer.html :: footer">

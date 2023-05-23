@@ -45,5 +45,10 @@ public class CalController {
 		return result;
 	}
 	
-	
+	@PostMapping("/mkMemo")
+	public String mkMemo(HttpSession session, Cal cal) {		
+		calService.insertCal(session, cal);
+			
+		return "index";
+	}
 }
