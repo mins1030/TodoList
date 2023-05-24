@@ -36,7 +36,7 @@ public class TodoController {
 	public String mkTodo(HttpSession session, Todo todo) {		
 		todoService.insertTodo(session, todo);
 			
-		return "index";
+		return "redirect:/todoList_grid";
 	}
 	@PostMapping("/todoList")
 	@ResponseBody

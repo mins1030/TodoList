@@ -54,8 +54,11 @@ public class CalService {
 		String id = UUID.randomUUID().toString(); 
 		
 		try {
+			cal.setCalId("1");
 			cal.setMemId(seniorMember.getEmpNum());
 			cal.setId(id);
+			cal.setDueDateClass("");
+			cal.setCategory("time");
 		}catch(Exception e) {
 			logger.debug("exception in insertCal() ...");
 		}

@@ -49,6 +49,6 @@ public class CalController {
 	public String mkMemo(HttpSession session, Cal cal) {		
 		calService.insertCal(session, cal);
 			
-		return "index";
+		return "redirect:/calendar";
 	}
 }

@@ -43,9 +43,13 @@ public class MainController {
 	}
 	
 	@GetMapping("/calendar") 
-	public String calendar() {
-		logger.debug("calendar controller ..."); 
-		return "calendar"; 
+	public String calendar(HttpSession session) {
+		if(session.getAttribute("otm_email")==null) { 
+//			return "index";
+			return "redirect:/pages-sign-in";
+		}
+		logger.debug("calendar controller ...");
+		return "calendar";
 	}
 	 
 	

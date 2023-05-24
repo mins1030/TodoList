@@ -25,7 +25,7 @@
     
 	<insert id="insertCal" parameterType="com.hanshin.seven.Domain.Cal">
 		INSERT INTO cal 
-			VALUES(#{id},#{memId},#{calId},#{title},#{category},#{dueDateClass},#{calStart}#{calEnd},)
+			VALUES(#{id},#{memId},#{calId},#{title},#{category},#{dueDateClass},#{calStart},#{calEnd})
 	</insert>
 	
 	<update id="updateCal" parameterType="com.hanshin.seven.Domain.Cal">

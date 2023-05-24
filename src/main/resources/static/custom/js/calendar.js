@@ -10,7 +10,7 @@ async function main(){
 	console.log('eventList : ', eventList);
 	
 	var calList = makeCalList(eventList);
-	console.log('eventList : ', calList);
+	console.log('calList : ', calList);
 	
 	calendar.createEvents(calList);
 	
@@ -20,14 +20,14 @@ async function main(){
 	    id: '1',
 	    calendarId: '1',
 	    title: 'my event',
-	    category: 'time',
+	    category: 'time', // 'milestone', 'task', 'time' and 'allday'
 	    dueDateClass: '',
 	    start: '2023-05-18T22:30:00+09:00',
 	    end: '2023-05-19T02:30:00+09:00',
 	  },
 	  {
-	    id: '2',
-	    calendarId: '2',
+	    id: '3',
+	    calendarId: '1',
 	    title: 'second event',
 	    category: 'time',
 	    dueDateClass: '',
@@ -61,7 +61,7 @@ function getCalendars(){
 		  {
 		    id: '2',
 		    name: 'Work',
-		    color: '#ffffff',
+		    color: '#ff0000',
 		    borderColor: '#00a9ff',
 		    backgroundColor: '#00a9ff',
 		    dragBackgroundColor: '#00a9ff',
