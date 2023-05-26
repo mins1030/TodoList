@@ -15,6 +15,7 @@ async function main(){
 	calendar.createEvents(calList);
 	
 	setHrefToButton("/memo", "bt3");	// 버튼에 화면이동 연결
+	
 	/*calendar.createEvents([
 	  {
 	    id: '1',
@@ -75,7 +76,12 @@ function getCalendars(){
 function getCalendarOptions(){
 	return {
 		defaultView: 'month',
-		calendars:getCalendars()
+		calendars:getCalendars(),
+		useFormPopup: true,
+  		useDetailPopup: true,
+  		gridSelection:{
+			  enableClick:true
+		}
 	};
 }
 
