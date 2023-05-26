@@ -21,6 +21,9 @@
         <if test="id != null  "> 
         	and id = #{id}
         </if>
+        <if test="memId != null  "> 
+        	and mem_id = #{memId}
+        </if>
     </select>
     
 	<insert id="insertCal" parameterType="com.hanshin.seven.Domain.Cal">

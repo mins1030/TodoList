@@ -63,11 +63,6 @@ public class TodoService {
 	}
 	
 	public int deleteTodo(HttpSession session, Todo todo){
-		/*
-		 * try {
-		 * 
-		 * }catch(Exception e) { logger.debug("exception in deleteTodo() ..."); }
-		 */
 		
 		return todoDao.deleteTodo(todo);
 	}
